@@ -15,11 +15,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.myClass {
-  border: solid 2px red;
+svg {
+  fill: var(--color-primary);
+  width: 24px;
+  height: 24px;
 }
 
-.primary {
-  color: var(--color-primary);
+/* .customContainer {
+  max-width: 120rem;
+  min-height: 127rem;
+  margin: 4vw auto;
+  border-radius: 9px;
+  overflow: hidden;
+} */
+
+.recipe__fig {
+  height: 32rem;
+  position: relative;
+  transform-origin: top;
+}
+.recipe__fig::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-grad-1),
+    var(--color-grad-2)
+  );
+  opacity: 0.6;
 }

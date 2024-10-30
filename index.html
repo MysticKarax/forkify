@@ -13,48 +13,57 @@
     />
   </head>
   <body>
-    <h1 class="text-5xl text-zinc-900 font-bold">hola</h1>
-    <div
-      class="container bg-gradient-custom text-5xl font-bold uppercase my-[10px] text-cyan-500 hover:bg-yellow-400 transition duration-300 myClass"
-    >
-      <header class="header">
-        <img src="src/img/logo.png" alt="Logo" class="header__logo" />
-        <form class="search">
+    <div class="mx-auto container grid grid-cols-[1fr_2fr]">
+      <header
+        class="header col-span-2 bg-grey-light-1 flex items-center justify-between p-8"
+      >
+        <img src="src/img/logo.png" alt="Logo" class="ml-16 h-[74px]" />
+        <form
+          class="bg-white rounded-3xl flex items-center pl-6 focus-within:translate-y-0.5 shadow-lg"
+        >
           <input
             type="text"
-            class="search__field"
+            class="border-none bg-none text-[1.7rem] focus:outline-none placeholder:text-grey-light-3"
             placeholder="Search over 1,000,000 recipes..."
           />
-          <button class="btn search__btn">
-            <svg class="search__icon">
+          <button
+            class="rounded-3xl text-white gap-2 btn search__btn font-semibold bg-gradient-custom flex items-center uppercase transition-all duration-200 hover:scale-105 py-6 px-16"
+          >
+            <svg class="search__icon w-8 h-8 ml-4">
               <use href="src/img/icons.svg#icon-search"></use>
             </svg>
-            <span>Search</span>
+            <span class="mr-4">Search</span>
           </button>
         </form>
 
-        <nav class="nav">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <button class="nav__btn nav__btn--add-recipe">
-                <svg class="nav__icon">
+        <nav class="nav mr-10">
+          <ul class="nav__list list-none flex h-full">
+            <li class="nav__item relative px-6">
+              <button
+                class="nav__btn nav__btn--add-recipe uppercase flex items-center"
+              >
+                <svg class="nav__icon w-8 h-8">
                   <use href="src/img/icons.svg#icon-edit"></use>
                 </svg>
                 <span>Add recipe</span>
               </button>
             </li>
-            <li class="nav__item">
-              <button class="nav__btn nav__btn--bookmarks">
-                <svg class="nav__icon">
+            <li class="nav__item relative px-6">
+              <button
+                class="nav__btn nav__btn--bookmarks uppercase flex items-center"
+              >
+                <svg class="nav__icon w-8 h-8">
                   <use href="src/img/icons.svg#icon-bookmark"></use>
                 </svg>
                 <span>Bookmarks</span>
               </button>
-              <div class="bookmarks">
-                <ul class="bookmarks__list">
-                  <div class="message">
+              <div
+                class="bookmarks py-4 absolute -right-10 z-10 w-[40rem] bg-white shadow-lg transition-all rounded-lg invisible"
+              >
+                <ul class="bookmarks__list list-none">
+                  <div class="message p-4 flex flex-col gap-2">
                     <div>
-                      <svg>
+                      <svg class="w-8 h-8">
                         <use href="src/img/icons.svg#icon-smile"></use>
                       </svg>
                     </div>
@@ -85,6 +94,8 @@
 
       <div class="search-results">
         <ul class="results">
+          <a class="text-blue-400 underline visited:text-blue-800" href="#5ed6604591c37cdc054bc886">Recipe 1</a>
+          <a class="text-blue-400 underline visited:text-blue-800" href="#664c8f193e7aa067e94e8438">Recipe 2</a>
           <!-- 
           <li class="preview">
             <a class="preview__link preview__link--active" href="#23456">
@@ -120,10 +131,10 @@
           </button> -->
         </div>
 
-        <p class="copyright">
+        <p class="copyright text-grey-dark-2 text-lg px-14 pt-16">
           &copy; Copyright by
           <a
-            class="twitter-link"
+            class="twitter-link text-grey-dark-1"
             target="_blank"
             href="https://twitter.com/jonasschmedtman"
             >Jonas Schmedtmann</a
@@ -132,15 +143,15 @@
         </p>
       </div>
 
-      <div class="recipe">
-        <div class="message">
+      <div class="recipe bg-grey-light-1">
+        <!-- <div class="message">
           <div>
             <svg>
               <use href="src/img/icons.svg#icon-smile"></use>
             </svg>
           </div>
           <p>Start by searching for a recipe or an ingredient. Have fun!</p>
-        </div>
+        </div> -->
 
         <!-- <div class="spinner">
           <svg>
@@ -157,74 +168,96 @@
             <p>No recipes found for your query. Please try again!</p>
           </div> -->
 
-        <!--
-        <figure class="recipe__fig">
-          <img src="src/img/test-1.jpg" alt="Tomato" class="recipe__img" />
-          <h1 class="recipe__title">
-            <span>Pasta with tomato cream sauce</span>
+        <!-- <figure class="recipe__fig">
+          <img
+            src="public/img/imageTest.webp"
+            alt="Tomato"
+            class="recipe__img w-full h-full object-cover block"
+          />
+          <h1
+            class="recipe__title absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/4 -skew-y-6 text-white font-semibold text-5xl uppercase text-center leading-[1.95] w-3/4"
+          >
+            <span class="py-5 px-8 bg-gradient-custom box-decoration-clone"
+              >Pasta with tomato cream sauce</span
+            >
           </h1>
         </figure>
 
-        <div class="recipe__details">
-          <div class="recipe__info">
-            <svg class="recipe__info-icon">
-              <use href="src/img/icons.svg#icon-clock"></use>
-            </svg>
-            <span class="recipe__info-data recipe__info-data--minutes">45</span>
-            <span class="recipe__info-text">minutes</span>
-          </div>
-          <div class="recipe__info">
-            <svg class="recipe__info-icon">
-              <use href="src/img/icons.svg#icon-users"></use>
-            </svg>
-            <span class="recipe__info-data recipe__info-data--people">4</span>
-            <span class="recipe__info-text">servings</span>
+        <div
+          class="recipe__details flex items-center px-32 pt-28 pb-14 text-xl justify-between"
+        >
+          <div class="flex gap-2">
+            <div class="recipe__info flex items-center">
+              <svg class="recipe__info-icon mr-4">
+                <use href="src/img/icons.svg#icon-clock"></use>
+              </svg>
+              <span
+                class="recipe__info-data recipe__info-data--minutes font-bold mr-1"
+                >45</span
+              >
+              <span class="recipe__info-text uppercase">minutes</span>
+            </div>
+            <div class="recipe__info flex items-center">
+              <svg class="recipe__info-icon mr-4">
+                <use href="src/img/icons.svg#icon-users"></use>
+              </svg>
+              <span
+                class="recipe__info-data recipe__info-data--people font-bold mr-1"
+                >4</span
+              >
+              <span class="recipe__info-text uppercase mr-4">servings</span>
 
-            <div class="recipe__info-buttons">
-              <button class="btn--tiny btn--increase-servings">
-                <svg>
-                  <use href="src/img/icons.svg#icon-minus-circle"></use>
-                </svg>
-              </button>
-              <button class="btn--tiny btn--increase-servings">
-                <svg>
-                  <use href="src/img/icons.svg#icon-plus-circle"></use>
-                </svg>
-              </button>
+              <div class="recipe__info-buttons flex items-center gap-2">
+                <button class="btn--tiny btn--increase-servings">
+                  <svg>
+                    <use href="src/img/icons.svg#icon-minus-circle"></use>
+                  </svg>
+                </button>
+                <button class="btn--tiny btn--increase-servings">
+                  <svg>
+                    <use href="src/img/icons.svg#icon-plus-circle"></use>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
-
-          <div class="recipe__user-generated">
+          <div class="recipe__user-generated invisible">
             <svg>
               <use href="src/img/icons.svg#icon-user"></use>
             </svg>
           </div>
-          <button class="btn--round">
-            <svg class="">
+          <button
+            class="btn--round place-self-end bg-gradient-custom p-2 rounded-full"
+          >
+            <svg class="fill-white">
               <use href="src/img/icons.svg#icon-bookmark-fill"></use>
             </svg>
           </button>
         </div>
 
-        <div class="recipe__ingredients">
-          <h2 class="heading--2">Recipe ingredients</h2>
-          <ul class="recipe__ingredient-list">
-            <li class="recipe__ingredient">
-              <svg class="recipe__icon">
+        <div
+          class="recipe__ingredients bg-grey-light-2 py-16 px-32 flex flex-col items-center gap-8"
+        >
+          <h2 class="heading--2 text-primary font-extrabold text-2xl uppercase">
+            Recipe ingredients
+          </h2>
+          <ul class="recipe__ingredient-list grid grid-cols-2">
+            <li class="recipe__ingredient flex">
+              <svg class="recipe__icon mr-4">
                 <use href="src/img/icons.svg#icon-check"></use>
               </svg>
-              <div class="recipe__quantity">1000</div>
+              <div class="recipe__quantity mr-1">1000</div>
               <div class="recipe__description">
                 <span class="recipe__unit">g</span>
                 pasta
               </div>
             </li>
 
-            <li class="recipe__ingredient">
-              <svg class="recipe__icon">
+            <li class="recipe__ingredient flex">
+              <svg class="recipe__icon mr-4">
                 <use href="src/img/icons.svg#icon-check"></use>
               </svg>
-              <div class="recipe__quantity">0.5</div>
+              <div class="recipe__quantity mr-1">0.5</div>
               <div class="recipe__description">
                 <span class="recipe__unit">cup</span>
                 ricotta cheese
@@ -233,15 +266,19 @@
           </ul>
         </div>
 
-        <div class="recipe__directions">
-          <h2 class="heading--2">How to cook it</h2>
+        <div
+          class="recipe__directions py-16 px-32 flex flex-col items-center gap-8"
+        >
+          <h2 class="heading--2 text-primary font-extrabold text-2xl uppercase">
+            How to cook it
+          </h2>
           <p class="recipe__directions-text">
             This recipe was carefully designed and tested by
-            <span class="recipe__publisher">The Pioneer Woman</span>. Please check out
-            directions at their website.
+            <span class="recipe__publisher">The Pioneer Woman</span>. Please
+            check out directions at their website.
           </p>
           <a
-            class="btn--small recipe__btn"
+            class="btn--small recipe__btn flex gap-1"
             href="http://thepioneerwoman.com/cooking/pasta-with-tomato-cream-sauce/"
             target="_blank"
           >
@@ -251,8 +288,7 @@
             </svg>
           </a>
         </div>
-        -->
-      </div>
+      </div> -->
     </div>
 
     <div class="overlay hidden"></div>
