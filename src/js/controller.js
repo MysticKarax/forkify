@@ -1,6 +1,7 @@
 import "../index.css";
-import { state, loadRecipe } from "./model";
+import { state, loadRecipe, loadSearchResults } from "./model";
 import recipeView from "./views/recipeView";
+import searchView from "./views/searchView";
 
 const controlRecipes = async function () {
   const id = window.location.hash.slice(1);
@@ -21,8 +22,24 @@ const controlRecipes = async function () {
   }
 };
 
+const controlSearchResults = async function () {
+  try {
+    // 1.- Get search query
+    const query = searchView.getQuery();
+    if (!query) return;
+    // 2.- Cargar los resultados del search
+    await loadSearchResults(query);
+    // 3.- Render Results
+    console.log(state.search.query);
+    console.log(state.search.results);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipes);
+  searchView.addHandlerSearch(controlSearchResults);
 };
 
 init();

@@ -12,6 +12,10 @@ export const state = {
     cookingTime: null,
     ingredients: null,
   },
+  search: {
+    query: "",
+    results: [],
+  },
 };
 
 export const loadRecipe = async (id) => {
@@ -28,6 +32,23 @@ export const loadRecipe = async (id) => {
       cookingTime: recipeData.cooking_time,
       ingredients: recipeData.ingredients,
     };
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const loadSearchResults = async function (query) {
+  state.search.query = query;
+  try {
+    const data = await getJSON(`${API_URL}/?search=${query}&key=${API_KEY}`);
+    state.search.results = data.data.recipes.map((recipe) => {
+      return {
+        id: recipe.id,
+        title: recipe.title,
+        publisher: recipe.publisher,
+        image: recipe.image_url,
+      };
+    });
   } catch (error) {
     throw error;
   }
